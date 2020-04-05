@@ -1,4 +1,4 @@
-module gaitonde
+module getwiki
 
 go 1.14
 

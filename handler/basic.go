@@ -2,7 +2,7 @@
 package handler
 
 import (
-	"gaitonde/utils"
+	"getwiki/utils"
 	"net/http"
 )
 

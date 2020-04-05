@@ -2,7 +2,7 @@ package cli
 
 import (
 	"fmt"
-	"gaitonde/tools"
+	"getwiki/tools"
 	"os"
 
 	"github.com/spf13/cobra"

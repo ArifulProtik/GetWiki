@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gaitonde/cli"
+	"getwiki/cli"
 	"log"
 
 	"github.com/joho/godotenv"

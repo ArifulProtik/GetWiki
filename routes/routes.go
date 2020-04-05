@@ -2,8 +2,8 @@
 package routes
 
 import (
-	"gaitonde/controller"
-	"gaitonde/handler"
+	"getwiki/controller"
+	"getwiki/handler"
 
 	"github.com/gorilla/mux"
 )
