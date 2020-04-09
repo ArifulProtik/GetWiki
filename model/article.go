@@ -7,5 +7,5 @@ type Article struct {
 	gorm.Model
 	UID   uint   `gorm:"primary_key" json:"id"`
 	Title string `gorm:"type:varchar(120)" json:"title"`
-	Body  string `gorm:"type:varchar(4000)" json:"body"`
+	Body  string `gorm:"type:varchar(5000)" json:"body"`
 }

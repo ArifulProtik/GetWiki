@@ -13,11 +13,6 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 )
 
-// Storage Holds Everything of DB Package
-type Storage interface {
-	Pingdb()
-}
-
 // Con The Connection Struct
 type stroage struct {
 	db *gorm.DB
@@ -39,12 +34,4 @@ func init() {
 	}
 	STRG = &stroage{db: db}
 
-}
-
-// Pingdb pings the db
-func (con *stroage) Pingdb() {
-	err := con.db.DB().Ping()
-	if err != nil {
-		fmt.Println("DB Connected Successfully")
-	}
 }
