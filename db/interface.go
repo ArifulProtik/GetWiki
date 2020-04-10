@@ -7,4 +7,5 @@ type Storage interface {
 	Pingdb()
 	// Starts Article
 	CreateArticle(*model.Article) (err error)
+	SearchArticle(string) ([]model.Article, error)
 }
