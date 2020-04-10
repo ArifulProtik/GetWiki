@@ -2,6 +2,7 @@ package tools
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"getwiki/model"
 	"io/ioutil"
@@ -51,7 +52,7 @@ func main() {
 }
 
 // Getwiki Gets the Wiki
-func Getwiki(search string) model.Article {
+func Getwiki(search string) (model.Article, error) {
 	client := &http.Client{}
 	req, err := http.NewRequest(
 		http.MethodGet,
@@ -78,13 +79,17 @@ func Getwiki(search string) model.Article {
 	json.Unmarshal(body, &wikijson)
 	var title string
 	var description string
+	var article model.Article
 	for i := range wikijson.Query.Pages {
 		title = wikijson.Query.Pages[i].Title
 		description = wikijson.Query.Pages[i].Extract
 	}
-	article := model.Article{
-		Title: title,
-		Body:  description,
+	if len(description) > 0 {
+		article = model.Article{
+			Title: title,
+			Body:  description,
+		}
+		return article, nil
 	}
-	return article
+	return article, errors.New("Not Found")
 }
