@@ -1,11 +1,9 @@
 package db
 
-import "fmt"
+import (
+	"getwiki/model"
+)
 
-// Pingdb pings the db
-func (con *stroage) Pingdb() {
-	err := con.db.DB().Ping()
-	if err != nil {
-		fmt.Println("DB Connected Successfully")
-	}
+func (con *stroage) Migrator() {
+	con.db.Debug().AutoMigrate(&model.Article{})
 }

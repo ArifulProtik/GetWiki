@@ -24,7 +24,7 @@ func StartServer() {
 	r := mux.NewRouter()
 	routes.RegisterRouter(r)
 	//check db before staring web
-	db.STRG.Pingdb()
+	db.STRG.Migrator()
 	srv := &http.Server{
 		Addr:         "127.0.0.1:8080",
 		WriteTimeout: time.Second * 15,

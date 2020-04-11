@@ -27,7 +27,6 @@ func init() {
 	}
 	connection := fmt.Sprintf("host=localhost port=5432 user=%s dbname=%s password=%s sslmode=disable", os.Getenv("DBUSERNAME"), os.Getenv("DBNAME"), os.Getenv("DBPASS"))
 	db, err := gorm.Open("postgres", connection)
-	defer db.Close()
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(2)
