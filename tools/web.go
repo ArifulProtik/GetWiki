@@ -25,8 +25,10 @@ func StartServer() {
 	routes.RegisterRouter(r)
 	//check db before staring web
 	db.STRG.Migrator()
+	port := os.Getenv("PORT")
+	address := ":" + port
 	srv := &http.Server{
-		Addr:         "127.0.0.1:8080",
+		Addr:         address,
 		WriteTimeout: time.Second * 15,
 		ReadTimeout:  time.Second * 15,
 		IdleTimeout:  time.Second * 60,
