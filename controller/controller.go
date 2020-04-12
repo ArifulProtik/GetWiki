@@ -1,4 +1,3 @@
-// package for controlling Requests
 package controller
 
 import (

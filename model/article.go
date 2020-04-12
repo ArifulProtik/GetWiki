@@ -1,13 +1,12 @@
 package model
 
-import (
-	"github.com/jinzhu/gorm"
-)
+import "time"
 
 // Article Holds the Wiki Artcile
 type Article struct {
-	gorm.Model
-	UID   uint   `gorm:"primary_key" json:"id"`
-	Title string `gorm:"type:varchar(120)" json:"title"`
-	Body  string `gorm:"type:varchar(5000)" json:"body"`
+	ID        uint64    `gorm:"primary_key;auto_increment" json:"id"`
+	Title     string    `gorm:"size:255;unique;not null" json:"title"`
+	Body      string    `sql:"type:text" gorm:"not null" json:"body"`
+	CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"created_at"`
+	UpdatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
 }

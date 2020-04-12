@@ -8,4 +8,6 @@ type Storage interface {
 	// Starts Article
 	CreateArticle(*model.Article) (err error)
 	SearchArticle(string) ([]model.Article, error)
+	Getbyid(uint64) (model.Article, error)
+	Getall() ([]model.Article, error)
 }

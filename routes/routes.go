@@ -13,4 +13,6 @@ func RegisterRouter(r *mux.Router) {
 	// Publicly Accesseble Endpoint goes here
 	apiv1.Handle("/", controller.BasicMiddleWare(controller.NotImplementedHandler))
 	apiv1.Handle("/search/{text}", controller.BasicMiddleWare(controller.SearchandGet)).Methods("GET")
+	apiv1.Handle("/posts/", controller.BasicMiddleWare(controller.Allposts)).Methods("GET")
+	apiv1.Handle("/post/{id}", controller.BasicMiddleWare(controller.Getpost))
 }

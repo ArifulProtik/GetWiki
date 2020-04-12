@@ -2,7 +2,6 @@ package controller
 
 import (
 	"getwiki/db"
-	"getwiki/tools"
 	"getwiki/utils"
 	"net/http"
 	"net/url"
@@ -21,15 +20,26 @@ func SearchandGet(w http.ResponseWriter, r *http.Request) {
 			"Error:":     err.Error(),
 		}, http.StatusUnprocessableEntity)
 	}
-	if len(articles) == 0 {
-		newarticle, err := tools.Getwiki(prep)
+	if len(articles) != 0 {
+		utils.JSONWriter(w, articles, 200)
+	} else {
+		getter, err := Getwiki(prep)
 		if err != nil {
 			utils.JSONWriter(w, utils.H{
 				"SearchText": param["text"],
 				"Error:":     err.Error(),
-			}, http.StatusNotFound)
+			}, http.StatusUnprocessableEntity)
+		} else {
+			errs := db.STRG.CreateArticle(getter)
+			if errs != nil {
+				utils.JSONWriter(w, utils.H{
+					"SearchText": param["text"],
+					"Error:":     err.Error(),
+				}, http.StatusUnprocessableEntity)
+			} else {
+				utils.JSONWriter(w, getter, 200)
+			}
+
 		}
-		// finding logic
 	}
-	// utils.JSONWriter(w, utils.H{"SearchText": param["text"]}, 200)
 }
