@@ -9,6 +9,7 @@ import (
 
 // SearchandGet Handles The Search and Get Wiki
 func SearchandGet(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	param := r.URL.Query()
 	prep := url.QueryEscape(param.Get("q"))
 	articles, err := db.STRG.SearchArticle(prep)
