@@ -9,7 +9,7 @@ import (
 // JSONWriter Write The JSON Response to The Response Writer
 func JSONWriter(w http.ResponseWriter, data interface{}, statusCode int) {
 	w.WriteHeader(statusCode)
-	w.Header().Set("Access-Control-Allow-Origin", "*")
+
 	err := json.NewEncoder(w).Encode(data)
 	if err != nil {
 		log.Fatal(err.Error())
