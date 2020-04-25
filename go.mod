@@ -4,7 +4,6 @@ go 1.14
 
 require (
 	github.com/anaskhan96/soup v1.1.1
-	github.com/anaskhan96/soup v1.1.1 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/gorilla/mux v1.7.4
 	github.com/jinzhu/gorm v1.9.12
