@@ -10,6 +10,7 @@ import (
 )
 
 func Allposts(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	posts, err := db.STRG.Getall()
 	if err != nil {
 		utils.JSONWriter(w, utils.H{
@@ -20,6 +21,7 @@ func Allposts(w http.ResponseWriter, r *http.Request) {
 	}
 }
 func Getpost(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
 	param := mux.Vars(r)
 	id, err := strconv.ParseUint(param["id"], 10, 64)
 	if err != nil {
