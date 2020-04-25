@@ -83,8 +83,7 @@ func Getwiki(search string) (*model.Article, error) {
 	}
 	doc := soup.HTMLParse(description)
 	finaldes := doc.FullText()
-	runes := []rune(finaldes)
-	intro := string(runes[0:300])
+	intro := finaldes[0:300]
 
 	if len(description) > 0 {
 		article = model.Article{
