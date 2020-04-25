@@ -2,7 +2,6 @@
 package db
 
 import (
-	"fmt"
 	"log"
 	"os"
 
@@ -25,8 +24,8 @@ func init() {
 	if err != nil {
 		log.Fatal("Error loading .env file")
 	}
-	connection := fmt.Sprintf("host=localhost port=5432 user=%s dbname=%s password=%s sslmode=disable", os.Getenv("DBUSERNAME"), os.Getenv("DBNAME"), os.Getenv("DBPASS"))
-	db, err := gorm.Open("postgres", connection)
+	// connection := fmt.Sprintf("host=localhost port=5432 user=%s dbname=%s password=%s sslmode=disable", os.Getenv("DBUSERNAME"), os.Getenv("DBNAME"), os.Getenv("DBPASS"))
+	db, err := gorm.Open("postgres", os.Getenv("DATABASE_URL"))
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(2)
