@@ -3,6 +3,7 @@ module getwiki
 go 1.14
 
 require (
+	github.com/anaskhan96/soup v1.1.1 // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/gorilla/mux v1.7.4
 	github.com/jinzhu/gorm v1.9.12
@@ -25,6 +26,7 @@ require (
 	github.com/spf13/viper v1.6.3
 	github.com/tools/godep v0.0.0-20180126220526-ce0bfadeb516 // indirect
 	github.com/urfave/negroni v1.0.0
+	golang.org/x/net v0.0.0-20200421231249-e086a090c8fd // indirect
 	golang.org/x/sys v0.0.0-20200409092240-59c9f1ba88fa // indirect
 	golang.org/x/text v0.3.2 // indirect
 	golang.org/x/tools v0.0.0-20200410194907-79a7a3126eef // indirect
